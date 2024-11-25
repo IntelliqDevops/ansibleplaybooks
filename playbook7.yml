@@ -1,0 +1,27 @@
+---
+- name: Copfiguring apache2
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: Edit the index.html file
+      copy:
+        content: "Welcome to IntelliQ"
+        dest: /var/www/html/index.html
+    - name: Restart apache2
+      service:
+        name: apache2
+        state: restarted
+    - name: Check apache2 configurations of server1
+      uri:
+        url: http://172.31.45.147
+        status_code: 200
+    - name: Check apache2 configurations of server2
+      uri:
+        url: http://172.31.36.245
+        status_code: 200
+...
+
