@@ -1,0 +1,9 @@
+---
+- name: Create directories 
+  hosts: all
+  tasks:
+    - name: Create directories 
+      file:
+        name: "/tmp/dir{{item}}"
+        state: directory
+      loop: "{{range(1,6) | list}}"

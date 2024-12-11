@@ -1,0 +1,14 @@
+---
+- name: Create directories and files in it
+  hosts: all
+  tasks:
+    - name: Create directories and also files in it
+      file:
+        name: "/home/vagrant/{{item.0}}/{{item.1}}"
+        state: touch
+      loop:
+        - ['dir1','f1']
+        - ['dir1','f2']
+        - ['dir2','f1']
+        - ['dir2','f2']
+
