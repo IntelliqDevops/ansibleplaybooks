@@ -1,0 +1,15 @@
+---
+- name: Download docker images from the registry
+  hosts: all
+  tasks:
+    - name: Download images
+      docker_image:
+        name: "{{item}}"
+        source: pull
+      with_items:
+        - nginx
+        - ghost
+        - tomcat
+        - jenkins/jenkins
+        - selenium/hub
+...

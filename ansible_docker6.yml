@@ -1,0 +1,12 @@
+---
+- name: Create an ubuntu container and mount /data as a volume using ansible playbooks
+  hosts: all
+  tasks:
+    - name: Create an ubuntu container
+      docker_container:
+        name: myubuntu
+        image: ubuntu
+        interactive: yes
+        tty: yes
+        volumes:
+          - /data
