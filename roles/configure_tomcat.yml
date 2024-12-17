@@ -1,0 +1,6 @@
+---
+- name: Configuring tomcat using ansible roles
+  hosts: all
+  roles:
+    - tomcat
+...
